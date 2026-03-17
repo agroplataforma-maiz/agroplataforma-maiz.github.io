@@ -918,6 +918,12 @@ footer {
 <body>
 
 <!-- ══════════ PORTADA ══════════ -->
+<div style="background:#fff;padding:16px 6vw;display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;border-bottom:1px solid rgba(61,34,8,0.08)">
+  <img src="img/LOGOTECNM.png"  alt="TecNM"          style="height:60px;object-fit:contain">
+  <img src="img/secihti.png"    alt="Secihti"         style="height:44px;object-fit:contain">
+  <img src="img/logotec.png"    alt="IT Ciudad Valles" style="height:60px;object-fit:contain">
+</div>
+
 <section class="portada">
   <div class="portada-fondo"></div>
 
@@ -1430,7 +1436,7 @@ document.querySelectorAll('.faq-pregunta').forEach(btn => {
 });
 
 // QR dinámico apuntando a la página técnica
-const urlTecnica = window.location.href.replace('/', '/proyecto.html');
+const urlTecnica = window.location.href.concat('proyecto.html');
 const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=130x130&color=3D2208&bgcolor=ffffff&data=' + encodeURIComponent(urlTecnica);
 const qrImg = document.getElementById('qr-img');
 if (qrImg) qrImg.src = qrUrl;
