@@ -1436,7 +1436,7 @@ document.querySelectorAll('.faq-pregunta').forEach(btn => {
 });
 
 // QR dinámico apuntando a la página técnica
-const urlTecnica = window.location.href.concat('proyecto.html');
+const urlTecnica = window.location.origin + '/proyecto.html';
 const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=130x130&color=3D2208&bgcolor=ffffff&data=' + encodeURIComponent(urlTecnica);
 const qrImg = document.getElementById('qr-img');
 if (qrImg) qrImg.src = qrUrl;
