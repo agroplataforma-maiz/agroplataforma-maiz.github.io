@@ -741,13 +741,177 @@ footer {
 }
 .reveal.on { opacity: 1; transform: translateY(0); }
 
+/* ── BOTÓN FLOTANTE ── */
+.btn-flotante {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 200;
+  background: var(--tierra);
+  color: var(--maiz-cl);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 12px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(61,34,8,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid rgba(240,180,41,0.3);
+}
+.btn-flotante:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(61,34,8,0.4);
+}
+.btn-flotante span { font-size: 16px; }
+@media(max-width:500px) { .btn-flotante { font-size: 11px; padding: 10px 14px; bottom: 16px; right: 12px; } }
+
+/* ── FAQ ── */
+.faq-sec { background: var(--crema); padding: 80px 6vw; width: 100%; }
+.faq-inner { max-width: 1100px; margin: 0 auto; }
+.faq-lista { display: flex; flex-direction: column; gap: 3px; margin-top: 40px; }
+.faq-item {
+  border: 1px solid rgba(61,34,8,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--blanco);
+}
+.faq-pregunta {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 24px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--tierra);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s;
+}
+.faq-pregunta:hover { background: rgba(61,34,8,0.03); }
+.faq-pregunta .faq-ico {
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  color: var(--maiz);
+}
+.faq-item.abierto .faq-ico { transform: rotate(45deg); }
+.faq-respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0 24px;
+  font-size: 15px;
+  color: var(--cafe);
+  line-height: 1.65;
+}
+.faq-item.abierto .faq-respuesta { max-height: 300px; padding: 0 24px 20px; }
+
+/* ── TUS SEMILLAS EN EL MAPA ── */
+.semillas-sec { background: var(--maiz-pal); padding: 80px 6vw; width: 100%; border-top: 3px solid rgba(200,130,10,0.15); }
+.semillas-inner { max-width: 1100px; margin: 0 auto; }
+.semillas-titulo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--tierra);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.semillas-sub { font-size: 18px; color: var(--cafe); max-width: 660px; margin-bottom: 40px; }
+.semillas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.sem-card {
+  background: var(--blanco);
+  border: 1px solid rgba(200,130,10,0.15);
+  border-radius: 12px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.sem-ico { font-size: 28px; flex-shrink: 0; }
+.sem-card h3 { font-size: 15px; font-weight: 800; color: var(--tierra); margin-bottom: 5px; }
+.sem-card p { font-size: 13px; color: var(--cafe); margin: 0; line-height: 1.5; }
+.semillas-garantia {
+  background: var(--verde);
+  color: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 680px;
+}
+.sg-ico { font-size: 36px; flex-shrink: 0; }
+.sg-txt { font-size: 15px; color: rgba(255,255,255,0.88); line-height: 1.6; }
+.sg-txt strong { color: #fff; display: block; font-size: 16px; margin-bottom: 4px; }
+
+/* ── QR IMPRESIÓN ── */
+.qr-sec {
+  background: var(--tierra);
+  padding: 60px 6vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qr-inner {
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+}
+.qr-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  flex-shrink: 0;
+}
+.qr-txt h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 22px;
+  color: var(--maiz-cl);
+  margin-bottom: 8px;
+}
+.qr-txt p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 10px; line-height: 1.6; }
+.qr-url {
+  font-family: monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.07);
+  padding: 6px 14px;
+  border-radius: 4px;
+  display: inline-block;
+  word-break: break-all;
+}
+
 /* ── IMPRESIÓN ── */
 @media print {
-  nav, .scroll-abajo, .hero-cta { display: none !important; }
+  .btn-flotante { display: none !important; }
   body { font-size: 14px; }
   .portada { min-height: auto; padding: 40px; page-break-after: always; }
   .sec { padding: 40px 20px; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .faq-respuesta { max-height: none !important; padding: 0 24px 20px !important; }
+  .qr-sec { page-break-inside: avoid; }
 }
 </style>
 </head>
@@ -942,7 +1106,7 @@ footer {
       <div class="amen-item"><div class="amen-ico">🥶</div><div class="amen-txt">Heladas fuera de temporada</div></div>
       <div class="amen-item"><div class="amen-ico">🐛</div><div class="amen-txt">Plagas nuevas que atacan los cultivos</div></div>
       <div class="amen-item"><div class="amen-ico">🚶</div><div class="amen-txt">Abandono del campo por migración</div></div>
-      <div class="amen-item"><div class="amen-ico">🌧️</div><div class="amen-txt">Inundaciones y lluvias extremas</div></div>
+      <div class="amen-item"><div class="amen-ico">🌧️</div><div class="amen-txt">Inundaciones e lluvias extremas</div></div>
       <div class="amen-item"><div class="amen-ico">📉</div><div class="amen-txt">Pérdida de prácticas y saberes tradicionales</div></div>
     </div>
   </div>
@@ -1041,17 +1205,29 @@ footer {
   <p class="texto-grande">Un equipo de once investigadoras e investigadores del IT Ciudad Valles y otras instituciones, con especialidades que van de la computación a la agroecología, pasando por nutrición, fitopatología, ciencias ambientales y saberes comunitarios.</p>
   <div class="equipo-mini">
     <div class="eq-card"><div class="eq-nombre">Dr. Alfredo Barrón Rodríguez</div><div class="eq-esp" style="color:var(--verde-cl)"><b>Responsable técnico</b></div></div>
-    <div class="eq-card"><div class="eq-nombre">Dra. Sofía del Rosario Romero Ramos</div><div class="eq-esp">Industrias alimentarias</div></div>
-    <div class="eq-card"><div class="eq-nombre">Dr. Hugo René Larraga Altamirano</div><div class="eq-esp">Sistemas computacionales</div></div>
-    <div class="eq-card"><div class="eq-nombre">Dr. Daniel Perales Rosas</div><div class="eq-esp">Parasitología agrícola</div><span class="eq-sni">SNI Nivel I</span></div>
-    <div class="eq-card"><div class="eq-nombre">MAE. Dalia Rosario Hernández López</div><div class="eq-esp">Sistemas computacionales</div></div>
-    <div class="eq-card"><div class="eq-nombre">Dr. Omar Espinosa Guerra</div><div class="eq-esp">Electrónica y software</div></div>
-    <div class="eq-card"><div class="eq-nombre">Dra. Rosa María Jiménez Maldonado</div><div class="eq-esp">Emprendimiento comunitario</div></div>
-    <div class="eq-card"><div class="eq-nombre">Dr. Carlos Cecilio Góngora Canul</div><div class="eq-esp">Fitopatología</div><span class="eq-sni">SNI Nivel I</span></div>
-    <div class="eq-card"><div class="eq-nombre">M.C. Habacuc Lorenzo Márquez</div><div class="eq-esp">SIG y análisis estadístico</div></div>
     <div class="eq-card"><div class="eq-nombre">Dra. Dulce Carolina Acosta Pintor</div><div class="eq-esp">Desarrollo sustentable</div></div>
-    <div class="eq-card"><div class="eq-nombre">M.C. Ana María Piedad Rubio</div><div class="eq-esp">Sistemas computacionales</div></div>
+    
+    <div class="eq-card"><div class="eq-nombre">Dr. Hugo René Larraga Altamirano</div><div class="eq-esp">Sistemas computacionales</div></div>
+
     <div class="eq-card"><div class="eq-nombre">Dra. Cynthia Wong Arguelles</div><div class="eq-esp">Ciencias ambientales</div><span class="eq-sni">SNI Nivel I</span></div>
+
+    <div class="eq-card"><div class="eq-nombre">Dr. Daniel Perales Rosas</div><div class="eq-esp">Parasitología agrícola</div><span class="eq-sni">SNI Nivel I</span></div>
+
+    <div class="eq-card"><div class="eq-nombre">Dra. Rosa María Jiménez Maldonado</div><div class="eq-esp">Emprendimiento comunitario</div></div>
+
+    <div class="eq-card"><div class="eq-nombre">Dr. Omar Espinosa Guerra</div><div class="eq-esp">Electrónica y software</div></div>
+
+    <div class="eq-card"><div class="eq-nombre">Dra. Sofía del Rosario Romero Ramos</div><div class="eq-esp">Industrias alimentarias</div></div>
+
+    <div class="eq-card"><div class="eq-nombre">Dr. Carlos Cecilio Góngora Canul</div><div class="eq-esp">Fitopatología</div><span class="eq-sni">SNI Nivel I</span></div>
+
+    <div class="eq-card"><div class="eq-nombre">M.C. Ana María Piedad Rubio</div><div class="eq-esp">Sistemas computacionales</div></div>
+   
+    <div class="eq-card"><div class="eq-nombre">M.C. Habacuc Lorenzo Márquez</div><div class="eq-esp">SIG y análisis estadístico</div></div>
+
+    <div class="eq-card"><div class="eq-nombre">MAE. Dalia Rosario Hernández López</div><div class="eq-esp">Sistemas computacionales</div></div>
+    
+    
   </div>
 </section>
 
@@ -1087,10 +1263,124 @@ footer {
     <div class="contacto-card">
       <div class="ct-label">Contacto del proyecto</div>
       <div class="ct-nombre">Alfredo Barrón Rodríguez</div>
-      <div class="ct-dato">📧 <strong>alfredo.barron@tecvalles.com</strong></div>
+      <div class="ct-dato">📧 <strong>alfredo.barron@tecvalles.mx</strong></div>
       <div class="ct-dato">📞 <strong>481 391 8309</strong></div>
       <div class="ct-dato">🏫 IT Ciudad Valles · TecNM · San Luis Potosí</div>
-      <a href="proyecto.html" class="btn btn-primary">Más información</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TUS SEMILLAS EN EL MAPA ══════════ -->
+<div class="semillas-sec reveal">
+  <div class="semillas-inner">
+    <div class="sec-num">8</div>
+    <h2 class="semillas-titulo">¿Qué información<br>se registra de <em>tu comunidad</em>?</h2>
+    <p class="semillas-sub">Si participas en el proyecto, solo guardamos lo necesario para cuidar el maíz nativo. Tú decides qué compartir y en todo momento puedes consultar tus datos.</p>
+    <div class="semillas-grid">
+      <div class="sem-card">
+        <div class="sem-ico">📍</div>
+        <div>
+          <h3>Ubicación de la parcela</h3>
+          <p>Las coordenadas GPS de donde siembras, para poner tu milpa en el mapa de conservación.</p>
+        </div>
+      </div>
+      <div class="sem-card">
+        <div class="sem-ico">🌽</div>
+        <div>
+          <h3>Nombre y descripción de tus variedades</h3>
+          <p>Incluyendo el nombre en tu lengua originaria, el color del grano y cuántos años llevas sembrándola.</p>
+        </div>
+      </div>
+      <div class="sem-card">
+        <div class="sem-ico">🧑‍🌾</div>
+        <div>
+          <h3>Datos básicos del productor/a</h3>
+          <p>Solo nombre, municipio y años de experiencia. Sin datos bancarios, CURP ni información sensible.</p>
+        </div>
+      </div>
+      <div class="sem-card">
+        <div class="sem-ico">📸</div>
+        <div>
+          <h3>Fotos y registros del cultivo</h3>
+          <p>Con tu permiso, fotos de la milpa y la mazorca para documentar la diversidad visual del maíz nativo.</p>
+        </div>
+      </div>
+      <div class="sem-card">
+        <div class="sem-ico">🌦️</div>
+        <div>
+          <h3>Condiciones del entorno</h3>
+          <p>Tipo de suelo, si hay sequía, plagas o heladas — para entender cómo el clima afecta tus cultivos.</p>
+        </div>
+      </div>
+      <div class="sem-card">
+        <div class="sem-ico">🎙️</div>
+        <div>
+          <h3>Saberes y prácticas tradicionales</h3>
+          <p>Lo que sabes sobre cómo seleccionar semilla, cuándo sembrar y qué rituales acompañan al maíz — si quieres compartirlo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="semillas-garantia">
+      <div class="sg-ico">🔒</div>
+      <div class="sg-txt">
+        <strong>Tu información está protegida</strong>
+        Los datos personales solo los usa el equipo de investigación. Nunca se venden ni se comparten sin tu permiso. Puedes consultar tu información cuando quieras contactando al equipo.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FAQ ══════════ -->
+<div class="faq-sec reveal">
+  <div class="faq-inner">
+    <div class="sec-num">9</div>
+    <h2 class="titulo-sec">Preguntas<br><em>frecuentes</em></h2>
+    <p class="texto-grande">Estas son las dudas que más nos preguntan cuando visitamos las comunidades. Si tienes otra, escríbenos.</p>
+    <div class="faq-lista">
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Van a vender mis datos o los de mi familia? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">No. La información que comparten los productores es solo para la investigación científica. No se vende, no se entrega a empresas privadas y no se usa para fines comerciales. El proyecto está respaldado por el Tecnológico Nacional de México y Secihti.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Necesito tener internet o celular para participar? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">No. Las visitas de campo se hacen en persona. El equipo llega a tu comunidad con los equipos necesarios. La plataforma digital está pensada para que puedas usarla después aunque tengas poca señal, pero no es obligatorio para participar en el proyecto.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Qué gano yo si participo en el proyecto? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">Tu conocimiento queda registrado y protegido. Recibes capacitación sobre cómo usar la plataforma y leer los mapas de tu región. El proyecto genera recomendaciones para el gobierno que pueden traducirse en apoyos para los productores de maíz nativo. Y tu variedad queda documentada para que no se pierda.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Me van a quitar mis semillas o mis derechos sobre ellas? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">No. Las semillas son tuyas y siempre lo seguirán siendo. El proyecto solo registra información sobre ellas — no las toma, no las lleva a laboratorios sin tu consentimiento, y no reclama ningún derecho sobre las variedades que cuidas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿El proyecto va a durar solo un rato o es algo permanente? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">La investigación formal dura 16 meses (2025–2026), pero el objetivo es dejar una plataforma funcionando que pueda actualizarse con el tiempo. La idea es que las propias comunidades puedan seguir alimentando el mapa con nueva información.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Quién puede ver el mapa y la información del proyecto? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">El mapa general será público — cualquier persona puede ver dónde se siembra maíz nativo. Pero la información personal de los productores solo la verá el equipo de investigación. Tú decides qué aparece con tu nombre y qué queda anónimo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Puedo participar aunque no sepa leer o escribir bien? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">Sí, completamente. Las entrevistas son orales y el equipo registra la información. También se trabaja con materiales visuales y se respetan las lenguas originarias. Tu saber es lo más importante, no la forma en que está escrito.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-pregunta">¿Cómo puedo saber qué registraron de mí? <span class="faq-ico">+</span></button>
+        <div class="faq-respuesta">Puedes pedir al equipo una copia de lo que se registró en tu visita. Contáctanos al correo alfredo.barron@tecvalles.mx o al teléfono 481 391 8309 y te compartimos tu información.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ QR ══════════ -->
+<div class="qr-sec">
+  <div class="qr-inner">
+    <img class="qr-img" id="qr-img" src="" alt="Código QR para información técnica">
+    <div class="qr-txt">
+      <h3>¿Quieres saber más?</h3>
+      <p>Escanea este código con tu celular para ver la información técnica completa del proyecto: objetivos, equipo, arquitectura de datos y cómo colaborar.</p>
+      <span class="qr-url" id="qr-url">agroplataforma-maiz-nativo.tecvalles.mx</span>
     </div>
   </div>
 </div>
@@ -1112,17 +1402,41 @@ footer {
   </div>
 </footer>
 
+<!-- ══════════ BOTÓN FLOTANTE ══════════ -->
+<!--<a href="agroplataforma_v3.html" class="btn-flotante" target="_blank">
+  <span>📄</span> Ver información técnica completa
+</a>-->
+
 <script>
-const obs = new IntersectionObserver(entries => {
+// Reveal al hacer scroll
+const revealObs = new IntersectionObserver(entries => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
       setTimeout(() => e.target.classList.add('on'), i * 60);
-      obs.unobserve(e.target);
+      revealObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.07 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+// FAQ accordion
+document.querySelectorAll('.faq-pregunta').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const abierto = item.classList.contains('abierto');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('abierto'));
+    if (!abierto) item.classList.add('abierto');
+  });
+});
+
+// QR dinámico apuntando a la página técnica
+const urlTecnica = window.location.href.replace('index.html', 'proyecto.html').replace('index.html', 'proyecto.html');
+const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=130x130&color=3D2208&bgcolor=ffffff&data=' + encodeURIComponent(urlTecnica);
+const qrImg = document.getElementById('qr-img');
+if (qrImg) qrImg.src = qrUrl;
+const qrUrlEl = document.getElementById('qr-url');
+if (qrUrlEl) qrUrlEl.textContent = urlTecnica.length > 55 ? urlTecnica.slice(0, 55) + '…' : urlTecnica;
+</script>
 </body>
 </html>
+
